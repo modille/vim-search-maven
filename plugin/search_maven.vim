@@ -96,12 +96,7 @@ if __name__ == "__main__":
         version = version.strip()
 
         ## step-3
-        output_code = ""
-        output_code = output_code + "<dependency>\n"
-        output_code = output_code + "    <groupId>%(groupid)s</groupId>\n"
-        output_code = output_code + "    <artifactId>%(artifactid)s</artifactId>\n"
-        output_code = output_code + "    <version>%(version)s</version>\n"
-        output_code = output_code + "</dependency>\n"
+        output_code = "compile('%(groupid)s:%(artifactid)s:%(version)s')\n"
         output_code %= locals()
 
         vim.command("let @@=pyeval('output_code')")
